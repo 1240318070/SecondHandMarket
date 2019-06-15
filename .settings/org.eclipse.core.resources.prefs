@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+encoding//WebContent/css/index.css=UTF-8
+encoding//WebContent/css/my.css=UTF-8
+encoding//src/DAO/iml/BuyDAOiml.java=UTF-8
+encoding//src/DAO/iml/SellDAOiml.java=UTF-8
+encoding//src/DAO/iml/UserDAOiml.java=UTF-8
+encoding//src/domain/Buy.java=UTF-8
+encoding//src/service/BuyService.java=GBK
+encoding//src/service/SellService.java=GBK
+encoding//src/service/UserService.java=GBK
+encoding//src/servlet/CkGoodsServlet.java=GBK
+encoding//src/servlet/LoginServlet.java=GBK
+encoding//src/servlet/UplodServlet.java=UTF-8
+encoding//src/servlet/registerServelt.java=GBK
+encoding//src/utils/C3P0Util.java=GBK
+encoding/<project>=UTF-8
