@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>SecondHandMarket</title>
+	<link rel="stylesheet" href="css/index.css" type="text/css">
+	<link rel="stylesheet" href="css/alike.css" type="text/css">
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/alike.js"></script>
+	<script type="text/javascript" src='js/ajax-pushlet-client.js'></script>
+</head>
+<body>
+	<div id="header">
+		<div>
+			<div id="navigation">
+				<div class="infos">
+					<a href="index.html">我要卖东西</a>
+				</div>
+				<div id="lr">
+					<a>登录</a> <a>注册</a>
+				</div>
+				<ul id="primary">
+					<li>
+						<a href="#" id="i" onclick="getGoods('i','CkGoodsServlet','10')"><span>首页</span></a>
+					</li>
+					<li>
+						<a href="#" id="m" onclick="getGoods('m','CkGoodsServlet','10')"><span>男装</span></a>
+					</li>
+					<li>
+						<a href="#" id="w" onclick="getGoods('w','CkGoodsServlet','10')"><span>女装</span></a>
+					</li>
+				</ul>
+				<ul id="secondary">
+					<li>
+						<a href="#" id="b" onclick="getGoods('b','CkGoodsServlet','10')"><span>书籍</span></a>
+					</li>
+					<li>
+						<a href="#" id="t" onclick="getGoods('t','CkGoodsServlet','10')"><span>文具</span></a>
+					</li>
+					<li>
+						<a href="#" id="o" onclick="getGoods('o','CkGoodsServlet','10')"><span>其它</span></a>
+					</li>
+				</ul>
+			</div>
+			<a href="index.html" id="logo"><img src="images/logo.png" alt="LOGO"></a>
+		</div>
+		<div class="select">
+			<form>
+				<input type="text" id="select-text" autocomplete="off">
+				<input type="submit" id="select-submit" value="查 找" onclick="SelectGoods()">
+			</form>
+		</div>
+	</div>
+	<div id="adbox">
+		<h1>欢迎选购，点击商品可查看详细信息</h1>
+
+		<div id="goods" style="height: 600px; overflow: hidden">
+			<div id="container"></div>
+		</div>
+		<div class="spread" id="spreadretract">
+			<a id="more" onclick="develop()">点击展开</a>
+		</div>
+	</div>
+
+	<div id="body">
+		<div id="logtype" class="login">
+			<h2>欢 迎 登 录</h2>
+			<div id="logclose" onclick="LogRegdispear('logtype')"></div>
+			<div id="infm">
+				<input type="text" Name="Unumber" id="lognum" maxlength="8" autocomplete="off" placeholder="用户名" required>
+				<input type="password" Name="UPassword" id="pword" maxlength="16" placeholder="密码" required>
+				<span id="msg"></span>
+				<ul class="tick">
+					<li>
+						<input type="checkbox" id="brand1" value="">
+						<label for="brand1"><span></span><a>记住我</a></label>
+					</li>
+				</ul>
+				<div class="log-send-button">
+					<input type="submit" id="log" value="登 录" onclick="login()">
+				</div>
+			</div>
+			<a href="#">忘记密码?</a>
+			<a href="#" onclick="LogReglink(this, 'regtype')">没有账号？点此注册</a>
+		</div>
+		
+		<div id="regtype">
+			<h2>欢 迎 注 册</h2>
+			<div id="regclose" onclick="LogRegdispear('regtype')"></div>
+			<form action="registerServelt" method="post">
+				<input type="text" name="Unumber" id="num" maxlength="8" onblur="ckName()" placeholder="学号" autocomplete="off" required>
+				<span id="msg1"></span>
+				<input type="text" name="Unickname" id="nic" maxlength="10" placeholder="昵称" autocomplete="off" required>
+				<div id="div-sex">
+					<span class="sex">性别</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<span class="sex">男</span><input type="radio" class="radio" name="sex" value="1" checked>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<span class="sex">女</span><input type="radio" class="radio" name="sex" value="0">
+				</div>
+				<input type="password" name="UPassword" id="rep1" maxlength="16" placeholder="密码" required>
+				<input type="password" name="reUPassword" id="rep2" maxlength="16" onblur="ckPassword()" placeholder="确认密码" required>
+				<span id="msg2"></span>
+				<div class="send-button">
+					<input type="submit" id="reg" value="注册" >
+				</div>
+				<input type="text" id="ck1" hidden="hidden" value="" required>
+				<input type="text" id="ck2" hidden="hidden" value="" required>
+			</form>
+			<a href="#" onclick="LogReglink(this, 'logtype')">已有账号？点此登录</a>
+		</div>
+		<div id="chetbox">
+			<div id="chet-head">
+				<h3 class="chet-h3"></h3>&nbsp;&nbsp;&nbsp;&nbsp;
+				<h3 class="chet-h3"></h3>
+				<div id="chet-del" onclick="closechet()"></div>
+			</div>
+			<div id="chet">
+			</div>
+			<div id="div-ch-but">
+				<textarea id="chetting"></textarea>
+				<input type="button" id="ch-but" onclick="trigger()" value="发送">
+			</div>
+		</div>
+	<div id="contents">
+		<div id="goodsinf">
+		    <div id="goodsOut" onclick="goodsClose()"></div>
+		    <div id="pics">
+		        <div id="pic-up">
+		            <img src="" style="width: 200px;">
+		        </div>
+		        <div id="pic-diwn">
+		            <img src="" id="check" onmouseover="overPic(this)">
+		            <img src="" onmouseover="overPic(this)">
+		            <img src="" onmouseover="overPic(this)">
+		            <img src="" onmouseover="overPic(this)">
+		        </div>
+		    </div>
+		    <div id="discr">
+		        <h2 style="font-size: 30px;"></h2>
+		        <p style="min-height: 100px"></p>
+		    </div>
+		    <div id="goodspric">
+		        <img class="money" src="images/money.jpg">
+		        <p class="price"></p>
+		    </div>
+		    <div id="butt">
+		    </div>
+		</div>
+		<ul id="articles">
+			<li class="headimg">
+				<h1></h1>
+			</li>
+			<li>
+				<h1></h1>
+			</li>
+			<li>
+				<h1></h1>
+			</li>
+		</ul>
+	</div>
+</div>
+<div id="foot">
+	<P id="headimg" class="elm"></P>
+	<P id="outUnumber" class="elm"></P>
+	<P id="goodsName" class="elm"></P>
+	<P id="myUnumber" class="elm"></P>
+</div>
+</body>
+</html>

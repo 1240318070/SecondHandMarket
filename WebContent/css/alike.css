@@ -1,0 +1,116 @@
+#chetbox{
+    display: none;
+    position: fixed;
+    text-align: center;
+    width: 400px;
+    height: 500px;
+    left: 38%;
+    top: 20%;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    z-index: 10;
+}
+#ch-but{
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#div-ch-but{
+    position: absolute;
+    max-height: 100px;
+    height: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid gray;
+}
+#chet{
+    margin: 10px;
+    max-width: 380px;
+    width: 380px;
+    max-height: 400px;
+    height: 400px;
+}
+#chetting{
+    width: 300px;
+    height: 45px;
+    margin: 10px;
+}
+.left-chat{
+    width: auto;
+    position: absolute;
+    z-index: 1;
+    left: 75px;
+    margin: 4px 0 0 0;
+}
+.chet-img{
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    left: 58px;
+}
+.div-chet-left{
+    float: left;
+    height: 30px;
+    width: 300px;
+    margin-bottom: 15px;
+}
+.head-img{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 15px;
+    border: 1px solid gray;
+}
+.right-chat{
+    width: auto;
+    position: absolute;
+    z-index: 1;
+    right: 75px;
+    margin: 5px 0 0 0;
+}
+.chet-img-right{
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    right: 58px;
+}
+.div-chet-right{
+    float: right;
+    height: 30px;
+    width: 300px;
+    margin-bottom: 15px;
+}
+.head-img-right{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 15px;
+    border: 1px solid gray;
+}
+.chet-h3{
+    display: inline;
+}
+#chet-head{
+    border-bottom: 1px solid gray;
+    margin: 10px 0;
+}
+#chet-del{
+    position: relative;
+    width: 25px;
+    height: 27px;
+    top: -6px;
+    right: 5px;
+    float: right;
+    z-index: 10;
+    background: url(../images/cclose.jpg);
+}
+#chet-del:hover{
+    cursor: pointer;
+    background: url(../images/cclose1.jpg);
+}
+
+.elm{
+	display: none;
+}
